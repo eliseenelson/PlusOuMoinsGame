@@ -1,5 +1,5 @@
 /*
-
+My Game
 Plus ou Moins
 -------------
 Réalisé par Elisée Bangya (cours de programmation en C)
