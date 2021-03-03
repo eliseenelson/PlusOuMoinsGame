@@ -1,44 +1,69 @@
-/*
-My Game
-Plus ou Moins
--------------
-Réalisé par Elisée Bangya (cours de programmation en C)
 
-*/
+/* Copyright (c) 2021 Elisée Bangya .
+ *
+ * This program is the proprietary software of Toboso Networks and/or its 
+ * licensors, and may only be used, duplicated, modified or distributed 
+ * pursuant to the terms and conditions of a separate, written license 
+ * agreement executed between you and Toboso Networks (an "Authorized 
+ * License"). Except as set forth in an Authorized License, Toboso Networks 
+ * grants no license (express or implied), right to use, or waiver of any 
+ * kind with respect to the Software, and Toboso Networks expressly reserves 
+ * all rights in and to the Software and all intellectual property rights 
+ * therein. If you have no authorized license, then you have no right to use 
+ * this software in any way, and should immediately notify Toboso Networks 
+ * and discontinuate all use of the software.
+ */
 
+/**
+ * @addtogroup Elisee C Games
+ * @{
+ **/
+
+/**
+ * @file     main.c
+ * @author   Elisée Bangya
+ * @version  1.0
+ * @date     03/03/2021
+ * @brief    Gess game
+ *
+ * @details   L'ordinateur choisit aléatoirement un chiffre compris entre 1 et 100. L'utilisateur le dévine et l'ordinateur lui donne des tips en fonctions de sa réponse.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
+#define MAX_VALUE 100
+#define MIN_VALUE 1
 
+
+/**
+ * \brief      Run game PlusOuMoins
+ * \details    --
+ *                  des coordonnées des points. (cf #Point)
+ /**
+ * @brief Run the game
+ * @param[in] argc number of argument for the function
+ * @param[in] argv agument values
+ * @return end code of the function
+ **/
+ 
 int main ( int argc, char** argv )
 {
-    int nombreMystere = 0, nombreEntre = 0;
-    const int MAX = 100, MIN = 1;
+    int nbRand, nbGuess;
 
-    // GÈnÈration du nombre alÈatoire
-
+    /* generate value randomly */ 
     srand(time(NULL));
-    nombreMystere = (rand() % (MAX - MIN + 1)) + MIN;
-
-    /* La boucle du programme. Elle se rÈpËte tant que l'utilisateur
-    n'a pas trouvÈ le nombre mystËre */
+    nbRand = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
 
     do
     {
-        // On demande le nombre
-        printf("Quel est le nombre ? ");
-        scanf("%d", &nombreEntre);
+        /* Ask the user to guess the number */
+        printf("Guess the number ? ");
+        scanf("%d", &nbGuess);
 
-        // On compare le nombre entrÈ avec le nombre mystËre
+        /*Compare the random number and the one guessed by the user */
+        (nbRand > nbGuess) ? printf("it's more !\n\n") : ((nbRand==nbGuess) ? printf ("Congrats, Good guess!!!\n\n") : printf("it's less !\n\n")); 
 
-        if (nombreMystere > nombreEntre)
-            printf("C'est plus !\n\n");
-        else if (nombreMystere < nombreEntre)
-            printf("C'est moins !\n\n");
-        else
-            printf ("Bravo, vous avez trouve le nombre mystere !!!\n\n");
-    } while (nombreEntre != nombreMystere);
-
+    } while (nbGuess != nbRand);
 }
