@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /* Copyright (c) 2021 Elisée Bangya .
  *
@@ -13,6 +14,13 @@
  * this software in any way, and should immediately notify Toboso Networks 
  * and discontinuate all use of the software.
  */
+=======
+/*
+My Game
+Plus ou Moins
+-------------
+Réalisé par Elisée Bangya (cours de programmation en C)
+>>>>>>> 29f173bd88e0b17b03b0ff731cdfec51d00ac4ec
 
 /**
  * @addtogroup Elisee C Games
