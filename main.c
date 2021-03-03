@@ -33,6 +33,7 @@
 
 #define MAX_VALUE 100
 #define MIN_VALUE 1
+#define GUESS_ALGO(X,Y) (X > Y) ? printf("it's more !\n\n") : ((X==Y) ? printf ("Congrats, Good guess!!!\n\n") : printf("it's less !\n\n"))
 
  /**
  * @brief Run the game
@@ -48,14 +49,18 @@ int main ( int argc, char** argv )
     srand(time(NULL));
     nbRand = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
 
+    printf("The prupose of this game is to guess right the random number chosen by the computer between %d and %d!\n\n",MIN_VALUE,MAX_VALUE);
+
     do
     {
         /* Ask the user to guess the number */
-        printf("Guess the number ? ");
+        printf("Guess the number between : ");
         scanf("%d", &nbGuess);
 
         /*Compare the random number and the one guessed by the user */
-        (nbRand > nbGuess) ? printf("it's more !\n\n") : ((nbRand==nbGuess) ? printf ("Congrats, Good guess!!!\n\n") : printf("it's less !\n\n")); 
+        GUESS_ALGO(nbRand,nbGuess); 
 
     } while (nbGuess != nbRand);
+
+    return 0; 
 }
